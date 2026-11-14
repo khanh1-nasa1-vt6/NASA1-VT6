@@ -1,0 +1,95 @@
+{
+  "passed": 22,
+  "total": 22,
+  "results": [
+    {
+      "name": "Fresh state validates and spawns outside base",
+      "status": "passed"
+    },
+    {
+      "name": "All interactive targets and navigation paths are walkable",
+      "status": "passed"
+    },
+    {
+      "name": "Movement collides with building; G requires proximity",
+      "status": "passed"
+    },
+    {
+      "name": "Enter base, walk to right tool shelf, collect tools, exit with robot",
+      "status": "passed"
+    },
+    {
+      "name": "Repair requires tools, three continuous seconds and correct day",
+      "status": "passed"
+    },
+    {
+      "name": "Leaving repair range resets progress",
+      "status": "passed"
+    },
+    {
+      "name": "Shield repair works only at interior shelter control",
+      "status": "passed"
+    },
+    {
+      "name": "Both rooms replenish oxygen and prevent all damage",
+      "status": "passed"
+    },
+    {
+      "name": "Storm hurts only outside; all-clear event is emitted",
+      "status": "passed"
+    },
+    {
+      "name": "Robot collects once per plot per day and cargo cap is three",
+      "status": "passed"
+    },
+    {
+      "name": "Low battery and carrying prevent sample collection",
+      "status": "passed"
+    },
+    {
+      "name": "Delivering transfers cargo atomically; exactly six seconds yields report",
+      "status": "passed"
+    },
+    {
+      "name": "Robot with zero battery can be carried, dropped, charged and released",
+      "status": "passed"
+    },
+    {
+      "name": "A charging robot stays outside when player enters base",
+      "status": "passed"
+    },
+    {
+      "name": "Cannot sleep remotely or before daily objectives are complete",
+      "status": "passed"
+    },
+    {
+      "name": "Day progression resets plots and daily counters but preserves gear",
+      "status": "passed"
+    },
+    {
+      "name": "Complete seven-day campaign including required storm wait",
+      "status": "passed"
+    },
+    {
+      "name": "Defeat freezes world and retry restores checkpoint",
+      "status": "passed"
+    },
+    {
+      "name": "Saving and loading preserves scanner and cargo without report duplication",
+      "status": "passed"
+    },
+    {
+      "name": "Corrupt save is rejected and fresh state is used",
+      "status": "passed"
+    },
+    {
+      "name": "Diagonal movement has the same speed as axial movement",
+      "status": "passed"
+    },
+    {
+      "name": "Food action restores hunger and consumes exactly one ration",
+      "status": "passed"
+    }
+  ],
+  "browserQA": "Not performed: managed cua_repl.js entrypoint unavailable. Core tests do not certify browser layout or input."
+}

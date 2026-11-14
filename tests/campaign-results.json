@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "steps": 13332,
+  "saves": 7,
+  "days": [
+    {
+      "day": 1,
+      "reports": 1,
+      "food": 5,
+      "stock": 30,
+      "power": 90,
+      "hp": 100
+    },
+    {
+      "day": 2,
+      "reports": 3,
+      "food": 5,
+      "stock": 30,
+      "power": 89,
+      "hp": 100
+    },
+    {
+      "day": 3,
+      "reports": 5,
+      "food": 5,
+      "stock": 30,
+      "power": 86,
+      "hp": 100
+    },
+    {
+      "day": 4,
+      "reports": 7,
+      "food": 5,
+      "stock": 30,
+      "power": 73,
+      "hp": 100
+    },
+    {
+      "day": 5,
+      "reports": 10,
+      "food": 5,
+      "stock": 30,
+      "power": 64,
+      "hp": 100
+    },
+    {
+      "day": 6,
+      "reports": 13,
+      "food": 5,
+      "stock": 29,
+      "power": 60,
+      "hp": 100
+    },
+    {
+      "day": 7,
+      "reports": 14,
+      "food": 5,
+      "stock": 29,
+      "power": 61,
+      "hp": 100
+    }
+  ],
+  "finalAssessment": {
+    "rows": [
+      {
+        "name": "Sinh tồn và an toàn",
+        "score": 20,
+        "evidence": "0 giây ôxy/độ no ≤30%; 0 giây ngoài trời khi có hiểm họa."
+      },
+      {
+        "name": "Quản lý tài nguyên",
+        "score": 20,
+        "evidence": "7 ngày được ghi; 1 lần ăn; 1 phần lấy từ kho; 57 điện đã chi."
+      },
+      {
+        "name": "Vận hành căn cứ",
+        "score": 20,
+        "evidence": "7/7 thiết bị đã khôi phục."
+      },
+      {
+        "name": "Nghiên cứu mẫu",
+        "score": 20,
+        "evidence": "14/14 báo cáo tối thiểu; 4 điểm nghiên cứu mở rộng (thưởng riêng)."
+      },
+      {
+        "name": "Kiến thức",
+        "score": 0,
+        "evidence": "0/7 đúng; đã trả lời 0/7 câu."
+      }
+    ],
+    "total": 80,
+    "completed": true,
+    "retries": 0,
+    "bonus": 4
+  },
+  "method": "Seven-day core simulation via WASD-equivalent tick input and interactions; no player teleport, HP reset, battery reset or inventory injection. Does not certify a real browser."
+}

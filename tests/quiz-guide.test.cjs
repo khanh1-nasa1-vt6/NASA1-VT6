@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict'),G=require('../game-core');let passed=0;
+function fresh(){const e=new G.Engine();e.choosePlan('balanced');e.readEvents();return e}
+const test=(n,fn)=>{fn();passed++;console.log('PASS',n)};
+test('Quiz opens by day and rejects out of range answers',()=>{const e=fresh();assert.equal(e.answerQuiz(2,0),false);assert.equal(e.answerQuiz(1,9),false);assert.equal(e.s.quizAnswers.length,0)});
+test('Correct answer awards one ration only once',()=>{const e=fresh();assert.ok(e.answerQuiz(1,G.QUIZ[0].answer));assert.equal(e.s.food,6);assert.equal(e.answerQuiz(1,G.QUIZ[0].answer),false);assert.equal(e.s.food,6)});
+test('Incorrect answer has explanation data and no survival penalty',()=>{const e=fresh();e.answerQuiz(1,2);assert.equal(e.s.food,5);assert.equal(e.s.hp,100);assert.equal(e.s.quizAnswers.length,1);assert.ok(G.QUIZ[0].explain)});
+test('Quiz survives save load and retry without farming rewards',()=>{const e=fresh();e.answerQuiz(1,G.QUIZ[0].answer);e.retry();assert.equal(e.s.quizAnswers.length,1);assert.equal(e.s.food,6);assert.equal(e.answerQuiz(1,0),false);const f=new G.Engine(JSON.parse(JSON.stringify(e.s)));assert.equal(f.s.quizAnswers.length,1)});
+test('Old v2 saves migrate and old checkpoints retry safely',()=>{const old=G.initial();delete old.quizAnswers;assert.equal(G.valid(old),true);const e=new G.Engine(old);assert.deepEqual(e.s.quizAnswers,[]);e.checkpoint=old;e.retry();assert.deepEqual(e.s.quizAnswers,[])});
+test('Malformed or duplicate quiz records are rejected',()=>{for(const a of [[{day:1,answer:3}],[{day:2,answer:1}],[{day:1,answer:0},{day:1,answer:1}]]){const s=G.initial();s.quizAnswers=a;assert.equal(G.valid(s),false)}});
+test('First guidance sends player to tools and resolves correct room door',()=>{const e=fresh();assert.equal(e.nextStep().id,'tools');e.s.guide=e.nextStep().id;assert.equal(e.guideTarget().id,'baseDoor');e.changeRoom('base');assert.equal(e.guideTarget().id,'tools')});
+test('Storm guidance stays within safe room',()=>{const e=fresh();e.s.day=4;e.s.elapsed=30;e.s.room='base';assert.equal(e.nextStep().id,'bed');e.s.room='shelter';assert.equal(e.nextStep().id,'shield')});
+test('Low battery with partial cargo suggests delivery before charging',()=>{const e=fresh();e.s.tools=true;e.s.day=2;e.s.repaired=['air'];e.s.robot.battery=2;e.s.robot.cargo=[{plot:'plotA',day:2}];e.s.samplesToday=1;assert.equal(e.nextStep().id,'lab');e.s.robot.cargo=[];assert.equal(e.nextStep().id,'robot');e.s.robot.carried=true;assert.equal(e.nextStep().id,'charger')});
+test('Robot locator can guide between rooms',()=>{const e=fresh();e.s.robot.room='shelter';e.s.robot.x=300;e.s.robot.y=300;e.setGuide('robot');assert.equal(e.guideTarget().id,'shelterDoor');assert.ok(G.valid(e.s));e.s.room='shelter';assert.equal(e.guideTarget().id,'robot')});
+test('Quiz remains optional for sleeping',()=>{const e=fresh();e.s.tools=true;e.s.repaired=['solar'];e.s.samplesToday=1;e.s.analyzedToday=1;assert.ok(e.readySleep());assert.equal(e.s.quizAnswers.length,0)});
+console.log(passed+' quiz and guidance tests passed');
