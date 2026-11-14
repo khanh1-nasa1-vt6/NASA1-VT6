@@ -1,0 +1,9 @@
+{
+  "version": "2.2",
+  "unitChecks": 49,
+  "sevenDayCampaign": "passed",
+  "midScanSaveRestores": 7,
+  "clientMockSmoke": "passed",
+  "browserAndRealDeviceQA": "not performed; see docs/TESTING.md",
+  "result": "All automated checks passed"
+}

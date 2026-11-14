@@ -1,0 +1,70 @@
+{
+  "total": 16,
+  "passed": 16,
+  "results": [
+    {
+      "name": "New mission starts with exactly five meals and finite stock",
+      "status": "passed"
+    },
+    {
+      "name": "Threshold warning at 30 is emitted once, remains flagged, clears after eating",
+      "status": "passed"
+    },
+    {
+      "name": "Hunger drains faster than old 0.035 and pauses on zero time",
+      "status": "passed"
+    },
+    {
+      "name": "At low hunger work and sleep blocked while movement remains available",
+      "status": "passed"
+    },
+    {
+      "name": "Zero carried food guides to stock and remote refill is impossible",
+      "status": "passed"
+    },
+    {
+      "name": "Partial stock is handled atomically and stock never negative",
+      "status": "passed"
+    },
+    {
+      "name": "Old save food, hp, reports, scanner and quizzes preserved on migration",
+      "status": "passed"
+    },
+    {
+      "name": "Choices lock for the day and create different energy costs",
+      "status": "passed"
+    },
+    {
+      "name": "Insufficient power rejects scan without removing cargo",
+      "status": "passed"
+    },
+    {
+      "name": "Generator trades hunger for energy and cannot force hunger below threshold",
+      "status": "passed"
+    },
+    {
+      "name": "Reserve charging is slower and charging consumes base power",
+      "status": "passed"
+    },
+    {
+      "name": "Radiation emergency is separate from meteoroid weather and rooms remain safe",
+      "status": "passed"
+    },
+    {
+      "name": "Resource exhaustion causes explicit failure without removing hp in safe room",
+      "status": "passed"
+    },
+    {
+      "name": "Current save reload resumes scanner and preserves spent energy once",
+      "status": "passed"
+    },
+    {
+      "name": "Assessment publishes bounded scores and does not call missing quizzes correct",
+      "status": "passed"
+    },
+    {
+      "name": "Malformed new state and null quiz entries are rejected safely",
+      "status": "passed"
+    }
+  ]
+}
